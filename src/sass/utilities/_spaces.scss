@@ -1,0 +1,61 @@
+@use "../abstracts" as *;
+
+@each $name, $value in $spaces {
+  .m {
+    &-#{$name} {
+      margin: var(--s-#{$name});
+    }
+    &x-#{$name} {
+      margin-inline: var(--s-#{$name});
+    }
+    &y-#{$name} {
+      margin-block: var(--s-#{$name});
+    }
+    &t-#{$name} {
+      margin-block-start: var(--s-#{$name});
+    }
+    &b-#{$name} {
+      margin-block-end: var(--s-#{$name});
+    }
+    &l-#{$name} {
+      margin-inline-start: var(--s-#{$name});
+    }
+    &r-#{$name} {
+      margin-inline-end: var(--s-#{$name});
+    }
+  }
+  .p {
+    &-#{$name} {
+      padding: var(--s-#{$name});
+    }
+    &x-#{$name} {
+      padding-inline: var(--s-#{$name});
+    }
+    &y-#{$name} {
+      padding-block: var(--s-#{$name});
+    }
+    &t-#{$name} {
+      padding-block-start: var(--s-#{$name});
+    }
+    &b-#{$name} {
+      padding-block-end: var(--s-#{$name});
+    }
+    &l-#{$name} {
+      padding-inline-start: var(--s-#{$name});
+    }
+    &r-#{$name} {
+      padding-inline-end: var(--s-#{$name});
+    }
+  }
+  .g {
+    &-#{$name} {
+      gap: var(--s-#{$name});
+    }
+    &x-#{$name} {
+      column-gap: var(--s-#{$name});
+    }
+    &y-#{$name} {
+      row-gap: var(--s-#{$name});
+    }
+  }
+}

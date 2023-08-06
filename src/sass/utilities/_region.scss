@@ -1,0 +1,4 @@
+@use "../abstracts" as *;
+.region {
+  padding-block: var(--region-space, $region-space);
+}

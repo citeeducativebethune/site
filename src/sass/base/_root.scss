@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+:root {
+  @each $name, $value in $colors {
+    --clr-#{$name}: #{$value};
+  }
+  @each $name, $value in $fontsizes {
+    --fs-#{$name}: #{$value};
+  }
+  @each $name, $value in $spaces {
+    --s-#{$name}: #{$value};
+  }
+  @each $name, $value in $fonts {
+    --font-#{$name}: #{$value};
+  }
+}

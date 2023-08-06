@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+body {
+  background: $background-color;
+  color: $color-text;
+  font-family: $font-base;
+  font-size: var(--fs-0);
+  line-height: 1.5;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $color-heading;
+  font-family: $font-heading;
+  line-height: 1.2;
+  max-inline-size: 25ch;
+}
+p {
+  max-inline-size: 65ch;
+}
+a {
+  color: $color-link;
+}
