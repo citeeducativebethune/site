@@ -16,9 +16,25 @@ h5 {
   line-height: 1.2;
   max-inline-size: 25ch;
 }
+h1 {
+  font-size: var(--fs-5);
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--fs-4);
+  font-weight: 700;
+}
+h3 {
+  font-size: var(--fs-3);
+  font-weight: 400;
+}
+h4 {
+  font-size: var(--fs-2);
+  font-weight: 400;
+}
+h5 {
+  font-size: var(--fs-1);
+}
 p {
   max-inline-size: 65ch;
-}
-a {
-  color: $color-link;
 }
