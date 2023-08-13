@@ -2,7 +2,7 @@
 .ram {
   display: grid;
   grid-template-columns: repeat(
-    auto-fit,
+    auto-fill,
     minmax(var(--grid-min-item-size, 16rem), 1fr)
   );
   align-items: center;

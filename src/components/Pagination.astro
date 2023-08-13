@@ -1,0 +1,64 @@
+---
+interface Props {
+  prev?: string;
+  next?: string;
+  current: number;
+  total: number;
+}
+const { prev, next, current, total } = Astro.props;
+---
+
+<div class="wrapper">
+  <nav aria-label="pagination" class="py-m px-s">
+    {
+      prev && (
+        <a href={prev} class="prev">
+          Précédent
+        </a>
+      )
+    }
+    {
+      total !== 1 && (
+        <div
+          class="current | text-align:center bg-surface-2 px-xs py-3xs"
+          role="presentation"
+        >
+          Page {current} sur {total}
+        </div>
+      )
+    }
+    {
+      next && (
+        <a href={next} class="next">
+          Suivant
+        </a>
+      )
+    }
+  </nav>
+</div>
+
+<style>
+  nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+  .current {
+    grid-column: 2;
+  }
+  .next {
+    grid-column: -1;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .current {
+    border: solid var(--clr-border-1);
+  }
+  @media screen and (max-width: 25rem) {
+    .current {
+      display: none;
+    }
+  }
+</style>

@@ -1,8 +1,16 @@
-<li class="bg-surface-1 p-s fs-1">
+---
+interface Props {
+  background?: string;
+  color?: string;
+}
+const { background = "surface-1", color = "text-1" } = Astro.props;
+---
+
+<article class={`bg-${background} clr-${color} p-s fs-1`}>
   <slot />
-</li>
+</article>
 <style>
-  li {
+  article {
     border-radius: 1rem;
     font-weight: 600;
   }

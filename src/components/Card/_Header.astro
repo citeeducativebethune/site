@@ -16,7 +16,7 @@ const { image, title, url, date } = Astro.props;
     <a href={url}>
       {image && (
         <Image
-          src="/college.png"
+          src={image.url}
           alt={image.alt ?? ""}
           width={300}
           height={300 / (5 / 3)}
@@ -28,7 +28,7 @@ const { image, title, url, date } = Astro.props;
   ) : (
     image && (
       <Image
-        src="/college.png"
+        src={image.url}
         alt={image.alt ?? ""}
         width={300}
         height={300 / (5 / 3)}

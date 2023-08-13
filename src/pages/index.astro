@@ -1,22 +1,69 @@
 ---
+import Card from "@components/Card/Card.astro";
+import Section from "@components/Section.astro";
+import TextCard from "@components/TextCard.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Accueil">
-  <h1>Accueil</h1>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
-    recusandae voluptates autem nihil ut? Nobis hic, inventore commodi
-    dignissimos velit optio fugit repellendus laborum voluptates saepe magnam
-    reprehenderit tempora debitis!
-  </p>
-  <div class="truc"></div>
+  <main class="flow" style="--flow-space:var(--s-m);">
+    <Section color="primary" shape="bottom">
+      <h2 class="text-align:center h1 clr-surface-1">Actualités</h2>
+      <div class="ram">
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+          tag="École Maternelle Michelet"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+          tag="École Primaire Victor Hugo"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+          tag="Collège Paul Verlaine"
+        />
+      </div>
+    </Section>
+    <Section>
+      <h2 class="h1 text-align:center">Les Établissements</h2>
+      <div class="ram">
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">Collège Paul Verlaine</p>
+        </TextCard>
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">École Maternelle Buisson</p>
+        </TextCard>
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">École Primaire Buisson</p>
+        </TextCard>
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">École Maternelle Michelet</p>
+        </TextCard>
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">École Primaire Michelet</p>
+        </TextCard>
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">École Maternelle Charlemagne</p>
+        </TextCard>
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">École Primaire Charlemagne</p>
+        </TextCard>
+        <TextCard background="secondary-1" color="surface-1">
+          <p class="text-align:center">École Primaire Victor Hugo</p>
+        </TextCard>
+      </div>
+    </Section>
+  </main>
 </Layout>
-<style>
-  .truc {
-    width: 100%;
-    height: 70px;
-    background: red;
-    clip-path: url(#bottomwave);
-  }
-</style>

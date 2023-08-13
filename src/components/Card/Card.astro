@@ -27,9 +27,11 @@ const props = Astro.props;
 </article>
 <style>
   article {
+    background: var(--clr-surface-1);
     border: solid var(--clr-border-1);
     border-radius: 0.5rem;
     --flow-space: var(--s-xs);
+    container-type: inline-size;
   }
   .card-link:where(:hover, :focus-visible) {
     background: var(--clr-surface-2);

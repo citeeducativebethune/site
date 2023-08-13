@@ -22,4 +22,9 @@ const { tag } = Astro.props;
     border: solid var(--clr-border-1);
     border-radius: 0.35rem;
   }
+  @container (max-width:15rem) {
+    .tag {
+      display: none;
+    }
+  }
 </style>

@@ -1,0 +1,82 @@
+---
+import Card from "@components/Card/Card.astro";
+import Pagination from "@components/Pagination.astro";
+import Section from "@components/Section.astro";
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Actualités de la Cité Éducative">
+  <main class="flow">
+    <Section shape="bottom" color="surface-2">
+      <h1 class="text-align:center">Actualités de la Cité Éducative</h1>
+    </Section>
+    <Section>
+      <div class="ram">
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+        <Card
+          title="Une semaine sans écran"
+          description="Pas d'écran cette semaine ! Vous êtes cap ?"
+          url="truc"
+          image={{ url: "article.png", alt: "qqc" }}
+          date="28-06-23"
+        />
+      </div>
+    </Section>
+    <Pagination total={12} current={3} next="3" prev="2" />
+  </main>
+</Layout>
