@@ -1,4 +1,10 @@
-.auto-grid {
+@use "../abstracts" as *;
+.ram {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--grid-min-item-size, 16rem), 1fr)
+  );
+  align-items: center;
+  gap: var(--gap, $grid-gap);
 }

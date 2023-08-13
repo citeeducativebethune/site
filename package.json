@@ -10,8 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/image": "^0.17.3",
     "@fontsource/averia-sans-libre": "^5.0.8",
-    "astro": "^2.10.1"
+    "astro": "^2.10.1",
+    "clsx": "^2.0.0"
   },
   "devDependencies": {
     "sass": "^1.64.2"

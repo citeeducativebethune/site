@@ -1,0 +1,37 @@
+---
+import type { ImageRef } from "@libs/types/image";
+import clsx from "clsx";
+import Content from "./_Content.astro";
+import Header from "./_Header.astro";
+import Footer from "./_Footer.astro";
+
+interface Props {
+  image?: ImageRef;
+  url?: string;
+  title: string;
+  description?: string;
+  location?: string;
+  site?: string;
+  mail?: string;
+  phone?: string;
+  date?: string;
+  tag?: string;
+}
+const props = Astro.props;
+---
+
+<article class={clsx("flow", "p-s", props.url && "card-link")}>
+  <Header {...props} />
+  <Content {...props} />
+  <Footer {...props} />
+</article>
+<style>
+  article {
+    border: solid var(--clr-border-1);
+    border-radius: 0.5rem;
+    --flow-space: var(--s-xs);
+  }
+  .card-link:where(:hover, :focus-visible) {
+    background: var(--clr-surface-2);
+  }
+</style>

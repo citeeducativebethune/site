@@ -1,0 +1,42 @@
+---
+interface Props {
+  color?: string;
+  shape?: "both" | "top" | "bottom";
+}
+const { color, shape } = Astro.props;
+---
+
+<section style={color && `--_bg:var(--clr-${color})`} class={shape}>
+  <div class=`container | wrapper flow` style="--flow-space:var(--s-m);">
+    <slot />
+  </div>
+</section>
+
+<style>
+  section {
+    --_p-top: var(--s-m);
+    --_p-bottom: var(--s-m);
+  }
+  section:where(.bottom, .both)::after {
+    --_p-bottom: 0;
+    content: "";
+    display: block;
+    height: var(--s-2xl);
+    background: var(--_bg);
+    clip-path: url(#bottomwave);
+    transform: translateY(-1px);
+  }
+  section:where(.top, .both)::before {
+    --_p-top: 0;
+    content: "";
+    display: block;
+    height: var(--s-2xl);
+    background: var(--_bg);
+    clip-path: url(#topwave);
+    transform: translateY(1px);
+  }
+  .container {
+    background: var(--_bg);
+    padding-block: var(--_p-top) var(--_p-bottom);
+  }
+</style>

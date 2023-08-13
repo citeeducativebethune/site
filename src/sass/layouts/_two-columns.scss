@@ -1,0 +1,12 @@
+@use "../abstracts" as *;
+
+.two-columns {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap, $grid-gap);
+  @media screen and (max-width: 60rem) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+}

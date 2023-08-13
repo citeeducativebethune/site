@@ -1,0 +1,76 @@
+---
+import type { ImageRef } from "@libs/types/image";
+import { Image } from "@astrojs/image/components";
+
+interface Props {
+  image?: ImageRef;
+  title?: string;
+  url?: string;
+  date?: string;
+}
+const { image, title, url, date } = Astro.props;
+---
+
+{
+  url ? (
+    <a href={url}>
+      {image && (
+        <Image
+          src="/college.png"
+          alt={image.alt ?? ""}
+          width={300}
+          height={300 / (5 / 3)}
+          fit="cover"
+          format="jpg"
+        />
+      )}
+    </a>
+  ) : (
+    image && (
+      <Image
+        src="/college.png"
+        alt={image.alt ?? ""}
+        width={300}
+        height={300 / (5 / 3)}
+        fit="cover"
+        format="jpg"
+      />
+    )
+  )
+}
+
+{
+  title && (
+    <h3 class="font-base h4">
+      {url ? (
+        <a href={url} class="clr-text-1">
+          {title}
+        </a>
+      ) : (
+        title
+      )}
+    </h3>
+  )
+}
+
+{
+  date && (
+    <div>
+      <time class="clr-border-2 ">{date}</time>
+    </div>
+  )
+}
+
+<style>
+  .h4 {
+    font-weight: 500;
+  }
+  img {
+    width: 100%;
+    aspect-ratio: 5/3;
+    object-fit: cover;
+  }
+  a {
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,21 @@
+@use "../abstracts" as *;
+
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap, $flex-gap);
+  &[data-align="center"] {
+    align-items: center;
+  }
+}
+
+.sidebar {
+  flex-basis: var(--threshold, 25rem);
+  flex-grow: 1;
+}
+
+.with-sidebar > :not(.sidebar) {
+  flex-basis: 0;
+  flex-grow: 999;
+}

@@ -1,7 +1,102 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import Section from "@components/Section.astro";
+import TextCard from "@components/TextCard.astro";
+import Card from "@components/Card/Card.astro";
 ---
 
 <Layout title="À Propos">
-  <h1>À Propos</h1>
+  <main class="flow">
+    <Section shape="bottom" color="secondary-2">
+      <h1 class="clr-surface-1 text-align:center">
+        La cité éducative de Béthune
+      </h1>
+      <p class="clr-surface-1">
+        Les Cités éducatives visent à intensifier les prises en charge
+        éducatives des enfants et des jeunes, de la naissance à l’insertion
+        professionnelle, avant, pendant, autour et après le cadre scolaire.
+        Elles consistent en une grande alliance des acteurs éducatifs dans les
+        quartiers prioritaires de la politique de la ville : parents, services
+        de l’État, des collectivités, associations, habitants. À travers les
+        Cités éducatives, le Gouvernement veut ainsi fédérer tous les acteurs de
+        l’éducation scolaire et périscolaire, dans les territoires qui en ont le
+        plus besoin et où seront concentrés les moyens publics.
+      </p>
+    </Section>
+    <Section>
+      <h2 class="h1 text-align:center">Le Périmètre de la cité éducative</h2>
+      <div class="two-columns mt-m px-s" data-type="wide">
+        <p>
+          La commune de Béthune dispose de deux quartiers prioritaires, le Mont
+          Liébaut et la Rue de Lille. Il est proposé d’associer ces deux
+          territoires afin de disposer d’une programmation homogène. La ville de
+          Béthune, « Smart City », se veut dynamique et tournée vers les
+          nouvelles technologies. La commune possède une ingénierie dédiée à la
+          Politique de la ville qui travaille en lien étroit avec les autres
+          services (jeunesse, éducation, cohésion sociale, santé, …), ce qui
+          traduit une volonté certaine de s’investir pour les habitants des
+          quartiers et plus particulièrement les jeunes.
+        </p>
+        <img src="/map.png" alt="carte de Béthune" />
+      </div>
+    </Section>
+    <Section shape="both" color="primary">
+      <h2 class="h1 clr-surface-1 text-align:center">Les Enjeux</h2>
+      <ul class="two-columns" role="list">
+        <TextCard>
+          Favoriser l’ambition et la réussite de tous, dans le cadre d’une
+          alliiance éducative renforcée.
+        </TextCard>
+        <TextCard>
+          Favoriser le vivre ensemble et promouvoir les valeurs de la
+          République.
+        </TextCard>
+        <TextCard>Favoriser le bien-être de tous.</TextCard>
+        <TextCard>
+          Lutter contre les fractures et appréhender le monde de demain.
+        </TextCard>
+      </ul>
+    </Section>
+    <Section>
+      <h2 class="h1 text-align:center">Contacts</h2>
+      <div class="ram">
+        <Card
+          title="Sandrine MACQ"
+          description="Principale du collège Paul verlaine et cheffe de file Éducation nationale"
+          mail="example@ac-lille.fr"
+          phone="03-33-33-33-33"
+        />
+        <Card
+          title="Karine NIVESSE"
+          date="03-05-2023"
+          image={{ url: "college.png", alt: "college" }}
+          url="example.com"
+          description="Super nouvel article à lire !"
+          tag="Collège Paul Verlaine"
+        />
+        <Card
+          title="Elise CUVILLIER"
+          description="Responsable du Service Politique de la Ville – Mairie de Béthune"
+          mail="example@ac-lille.fr"
+        />
+        <Card
+          title="Hélène PIWEK"
+          description="Coordinatrice Cité Educative Mairie de Béthune"
+          phone="03-33-33-33-33"
+        />
+        <Card
+          title="Jacqueline SOCHACKI"
+          description="Coordinatrice Cité Educative Education Nationale"
+          mail="example@ac-lille.fr"
+          phone="03-33-33-33-33"
+        />
+        <Card
+          title="Eugénie BAILLEUL"
+          description="Inspectrice Education Nationale Béthune 1"
+          mail="example@ac-lille.fr"
+          phone="03-33-33-33-33"
+        />
+      </div>
+    </Section>
+  </main>
 </Layout>

@@ -1,0 +1,68 @@
+---
+import Icon from "@components/Icon.astro";
+interface Props {
+  description?: string;
+  mail?: string;
+  phone?: string;
+  location?: string;
+  site?: string;
+}
+const { description, mail, phone, location, site } = Astro.props;
+---
+
+<div class="content flow">
+  {description && <p>{description}</p>}
+  {
+    (mail || phone || location || site) && (
+      <ul role="list">
+        {mail && (
+          <li>
+            <a
+              href={`mailto:${mail}`}
+              target="blank"
+              class="with-icon clr-secondary-2"
+            >
+              <Icon icon="mail" />
+              {mail}
+            </a>
+          </li>
+        )}
+        {phone && (
+          <li>
+            <a
+              href={`tel:${phone}`}
+              target="blank"
+              class="with-icon clr-secondary-2"
+            >
+              <Icon icon="phone" />
+              {phone}
+            </a>
+          </li>
+        )}
+        {location && (
+          <li class="with-icon">
+            <Icon icon="location" />
+            {location}
+          </li>
+        )}
+        {site && (
+          <li>
+            <a href={site} class="with-icon clr-secondary-2">
+              <Icon icon="globe" />
+              Site Web
+            </a>
+          </li>
+        )}
+      </ul>
+    )
+  }
+</div>
+
+<style>
+  ul {
+    --flow-space: var(--s-2xs);
+  }
+  a {
+    text-decoration: none;
+  }
+</style>

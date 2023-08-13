@@ -1,7 +1,10 @@
 ---
 import "@fontsource/averia-sans-libre/400.css";
 import "@fontsource/averia-sans-libre/700.css";
-import "../sass/index.scss";
+import "@sass/index.scss";
+import Symbols from "@components/Symbols.astro";
+import Header from "@components/Header.astro";
+
 interface Props {
   title: string;
 }
@@ -17,6 +20,8 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <Symbols />
+    <Header />
     <slot />
   </body>
 </html>

@@ -1,0 +1,25 @@
+---
+interface Props {
+  tag?: string;
+}
+const { tag } = Astro.props;
+---
+
+{
+  tag && (
+    <div class="tag" style="--flow-space:var(--s-m);">
+      <span class="px-3xs">{tag}</span>
+    </div>
+  )
+}
+
+<style>
+  .tag {
+    display: flex;
+    justify-content: end;
+  }
+  .tag span {
+    border: solid var(--clr-border-1);
+    border-radius: 0.35rem;
+  }
+</style>

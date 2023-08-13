@@ -1,0 +1,38 @@
+<header>
+  <a href="/" class="logo" title="Accueil">
+    <img src="/logo.jpg" alt="logo de la cité éducativie" />
+  </a>
+  <nav>
+    <ul class="cluster" role="list">
+      <li><a href="/actualites">Actualités</a></li>
+      <li><a href="/structures">Les Structures</a></li>
+      <li><a href="/apropos">À Propos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-block: var(--s-xs);
+    padding-inline: var(--s-s);
+  }
+  @media screen and (min-width: 35rem) {
+    header {
+      flex-direction: unset;
+      justify-content: space-between;
+    }
+  }
+  nav ul {
+    gap: var(--s-s);
+    padding-inline: var(--s-s);
+  }
+  a {
+    text-decoration: none;
+    color: var(--clr-text-2);
+  }
+</style>
