@@ -3,6 +3,9 @@ import Layout from "@layouts/Layout.astro";
 import Section from "@components/Section.astro";
 import TextCard from "@components/TextCard.astro";
 import Card from "@components/Card/Card.astro";
+import { getContacts } from "@libs/getData/contacts.js";
+
+const contacts = await getContacts();
 ---
 
 <Layout title="À Propos">
@@ -60,42 +63,13 @@ import Card from "@components/Card/Card.astro";
     <Section>
       <h2 class="h1 text-align:center">Contacts</h2>
       <div class="ram">
-        <Card
-          title="Sandrine MACQ"
-          description="Principale du collège Paul verlaine et cheffe de file Éducation nationale"
-          mail="example@ac-lille.fr"
-          phone="03-33-33-33-33"
-        />
-        <Card
-          title="Karine NIVESSE"
-          date="03-05-2023"
-          image={{ url: "college.png", alt: "college" }}
-          url="example.com"
-          description="Super nouvel article à lire !"
-          tag="Collège Paul Verlaine"
-        />
-        <Card
-          title="Elise CUVILLIER"
-          description="Responsable du Service Politique de la Ville – Mairie de Béthune"
-          mail="example@ac-lille.fr"
-        />
-        <Card
-          title="Hélène PIWEK"
-          description="Coordinatrice Cité Educative Mairie de Béthune"
-          phone="03-33-33-33-33"
-        />
-        <Card
-          title="Jacqueline SOCHACKI"
-          description="Coordinatrice Cité Educative Education Nationale"
-          mail="example@ac-lille.fr"
-          phone="03-33-33-33-33"
-        />
-        <Card
-          title="Eugénie BAILLEUL"
-          description="Inspectrice Education Nationale Béthune 1"
-          mail="example@ac-lille.fr"
-          phone="03-33-33-33-33"
-        />
+        {
+          contacts.map(
+            ({ name: title, description, phoneNumber: phone, mail }) => (
+              <Card {title} {description} {phone} {mail} />
+            )
+          )
+        }
       </div>
     </Section>
   </main>

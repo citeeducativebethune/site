@@ -3,6 +3,12 @@ import Card from "@components/Card/Card.astro";
 import Pagination from "@components/Pagination.astro";
 import Section from "@components/Section.astro";
 import Layout from "@layouts/Layout.astro";
+import { getActus } from "@libs/getData/actus.js";
+
+const actualites = (await getActus()).map((el) => ({
+  ...el.data,
+  slug: el.slug,
+}));
 ---
 
 <Layout title="Actualités de la Cité Éducative">
@@ -12,69 +18,28 @@ import Layout from "@layouts/Layout.astro";
     </Section>
     <Section>
       <div class="ram">
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-        />
+        {
+          actualites.map(
+            ({
+              title,
+              description,
+              image,
+              altImage,
+              date,
+              slug,
+              etablissement,
+            }) => (
+              <Card
+                {title}
+                {description}
+                {date}
+                image={{ url: image, alt: altImage }}
+                url={`actualites/${slug}`}
+                tag={etablissement}
+              />
+            )
+          )
+        }
       </div>
     </Section>
     <Pagination total={12} current={3} next="3" prev="2" />

@@ -2,6 +2,9 @@
 import Card from "@components/Card/Card.astro";
 import Section from "@components/Section.astro";
 import Layout from "@layouts/Layout.astro";
+import { getEtablissements } from "@libs/getData";
+
+const entries = await getEtablissements();
 ---
 
 <Layout title="Établissements">
@@ -16,54 +19,17 @@ import Layout from "@layouts/Layout.astro";
     </Section>
     <Section>
       <div class="ram">
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
-        <Card
-          title="École primaire Charlemagne"
-          image={{ url: "college.png", alt: "college" }}
-          location="32 bd des États-Unis"
-          site="http://example.com"
-        />
+        {
+          entries.map(({ name, image, location, site, url }) => (
+            <Card
+              title={name}
+              {site}
+              {location}
+              image={{ url: image, alt: `Établissement ${name}` }}
+              {url}
+            />
+          ))
+        }
       </div>
     </Section>
   </main>

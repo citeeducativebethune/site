@@ -3,6 +3,11 @@ import Card from "@components/Card/Card.astro";
 import Section from "@components/Section.astro";
 import TextCard from "@components/TextCard.astro";
 import Layout from "@layouts/Layout.astro";
+import { getActus } from "@libs/getData/actus.js";
+import { getEtablissements } from "@libs/getData/etablissements.js";
+
+const etablissements = await getEtablissements();
+const actus = (await getActus()).slice(0, 3);
 ---
 
 <Layout title="Accueil">
@@ -10,59 +15,30 @@ import Layout from "@layouts/Layout.astro";
     <Section color="primary" shape="bottom">
       <h2 class="text-align:center h1 clr-surface-1">Actualités</h2>
       <div class="ram">
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-          tag="École Maternelle Michelet"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-          tag="École Primaire Victor Hugo"
-        />
-        <Card
-          title="Une semaine sans écran"
-          description="Pas d'écran cette semaine ! Vous êtes cap ?"
-          url="truc"
-          image={{ url: "article.png", alt: "qqc" }}
-          date="28-06-23"
-          tag="Collège Paul Verlaine"
-        />
+        {
+          actus.map(({ data, slug }) => (
+            <Card
+              title={data.title}
+              description={data.description}
+              image={{ url: data.image, alt: data.altImage }}
+              date={data.date}
+              tag={data.etablissement}
+              url={`/actualites/${slug}`}
+            />
+          ))
+        }
       </div>
     </Section>
     <Section>
       <h2 class="h1 text-align:center">Les Établissements</h2>
       <div class="ram">
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">Collège Paul Verlaine</p>
-        </TextCard>
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">École Maternelle Buisson</p>
-        </TextCard>
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">École Primaire Buisson</p>
-        </TextCard>
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">École Maternelle Michelet</p>
-        </TextCard>
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">École Primaire Michelet</p>
-        </TextCard>
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">École Maternelle Charlemagne</p>
-        </TextCard>
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">École Primaire Charlemagne</p>
-        </TextCard>
-        <TextCard background="secondary-1" color="surface-1">
-          <p class="text-align:center">École Primaire Victor Hugo</p>
-        </TextCard>
+        {
+          etablissements.map(({ name, url }) => (
+            <TextCard background="secondary-1" color="surface-1" {url}>
+              <p class="text-align:center">{name}</p>
+            </TextCard>
+          ))
+        }
       </div>
     </Section>
   </main>

@@ -2,16 +2,29 @@
 interface Props {
   background?: string;
   color?: string;
+  url?: string;
 }
-const { background = "surface-1", color = "text-1" } = Astro.props;
+const { background = "surface-1", color = "text-1", url } = Astro.props;
 ---
 
 <article class={`bg-${background} clr-${color} p-s fs-1`}>
-  <slot />
+  {
+    url ? (
+      <a href={url}>
+        <slot />
+      </a>
+    ) : (
+      <slot />
+    )
+  }
 </article>
 <style>
   article {
     border-radius: 1rem;
     font-weight: 600;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
   }
 </style>
