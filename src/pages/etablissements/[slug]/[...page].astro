@@ -1,0 +1,39 @@
+---
+import ActuList from "@components/ActuList.astro";
+import Pagination from "@components/Pagination.astro";
+import Section from "@components/Section.astro";
+import Layout from "@layouts/Layout.astro";
+import { getActus } from "@libs/getData/actus.js";
+import { getEtablissements } from "@libs/getData/etablissements.js";
+import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const etablissements = await getEtablissements();
+  const allActus = await getActus();
+  return etablissements.map(({ slug, name }) => {
+    const actus = allActus.filter((el) => el.data.etablissement === name);
+    return paginate(actus, { params: { slug }, pageSize: 2 });
+  });
+};
+
+const { page } = Astro.props as { page: Page<CollectionEntry<"actualites">> };
+---
+
+<Layout title="Collège Paul Verlaine">
+  <main class="flow">
+    <Section shape="bottom" color="surface-2">
+      <h1 class="text-align:center">Collège Paul Verlaine</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </Section>
+    <ActuList actualites={page.data} tag={false} />
+    <Pagination {page} />
+  </main>
+</Layout>

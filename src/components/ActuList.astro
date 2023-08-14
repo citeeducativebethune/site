@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Card from '@components/Card/Card.astro';
+import Section from '@components/Section.astro'
+interface Props{
+    actualites:CollectionEntry<"actualites">[],
+    tag?:boolean
+}
+const {tag, actualites:rawActus} = Astro.props
+const actualites = rawActus.map((el) => ({ ...el.data, slug: el.slug }));
+
+---
+
+<Section>
+    {
+      actualites.length === 0 ? (<p class="text-align:center">Pas d'actualites pour le moment</p>) :(
+
+        <div class="ram">
+          {
+            actualites.map(
+              ({
+                title,
+                description,
+                image,
+                altImage,
+                date,
+                slug,
+                etablissement,
+              }) => (
+                <Card
+                {title}
+                {description}
+                {date}
+                image={{ url: image, alt: altImage }}
+                url={`actualites/${slug}`}
+                tag={tag ? etablissement : undefined}
+                />
+                )
+                )
+              }
+              </div>
+              )
+            }
+</Section>

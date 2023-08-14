@@ -7,34 +7,30 @@ const { page } = Astro.props;
 const { lastPage, currentPage, url } = page;
 ---
 
-<div class="wrapper">
-  <nav aria-label="pagination" class="py-m px-s">
-    {
-      url.prev && (
-        <a href={url.prev} class="prev">
-          Précédent
-        </a>
-      )
-    }
-    {
-      lastPage !== 0 && (
+{
+  lastPage !== 1 && (
+    <div class="wrapper">
+      <nav aria-label="pagination" class="py-m px-s">
+        {url.prev && (
+          <a href={url.prev} class="prev">
+            Précédent
+          </a>
+        )}
         <div
           class="current | text-align:center bg-surface-2 px-xs py-3xs"
           role="presentation"
         >
           Page {currentPage} sur {lastPage}
         </div>
-      )
-    }
-    {
-      url.next && (
-        <a href={url.next} class="next">
-          Suivant
-        </a>
-      )
-    }
-  </nav>
-</div>
+        {url.next && (
+          <a href={url.next} class="next">
+            Suivant
+          </a>
+        )}
+      </nav>
+    </div>
+  )
+}
 
 <style>
   nav {

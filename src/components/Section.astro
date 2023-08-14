@@ -1,4 +1,5 @@
 ---
+import clsx from "clsx";
 interface Props {
   color?: string;
   shape?: "both" | "top" | "bottom";
@@ -6,7 +7,7 @@ interface Props {
 const { color, shape } = Astro.props;
 ---
 
-<section style={color && `--_bg:var(--clr-${color})`} class={shape}>
+<section style={color && `--_bg:var(--clr-${color})`} class={clsx(shape)}>
   <div class=`container | wrapper flow` style="--flow-space:var(--s-m);">
     <slot />
   </div>
