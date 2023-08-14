@@ -1,35 +1,34 @@
 ---
+import type { Page } from "astro";
 interface Props {
-  prev?: string;
-  next?: string;
-  current: number;
-  total: number;
+  page: Page;
 }
-const { prev, next, current, total } = Astro.props;
+const { page } = Astro.props;
+const { lastPage, currentPage, url } = page;
 ---
 
 <div class="wrapper">
   <nav aria-label="pagination" class="py-m px-s">
     {
-      prev && (
-        <a href={prev} class="prev">
+      url.prev && (
+        <a href={url.prev} class="prev">
           Précédent
         </a>
       )
     }
     {
-      total !== 1 && (
+      lastPage !== 0 && (
         <div
           class="current | text-align:center bg-surface-2 px-xs py-3xs"
           role="presentation"
         >
-          Page {current} sur {total}
+          Page {currentPage} sur {lastPage}
         </div>
       )
     }
     {
-      next && (
-        <a href={next} class="next">
+      url.next && (
+        <a href={url.next} class="next">
           Suivant
         </a>
       )
