@@ -1,10 +1,21 @@
 ---
+import type { Props as CardProps } from "@components/Card/Card.astro";
+import CardList from "@components/CardList.astro";
 import Card from "@components/Card/Card.astro";
 import Section from "@components/Section.astro";
 import Layout from "@layouts/Layout.astro";
 import { getEtablissements } from "@libs/getData";
 
 const entries = await getEtablissements();
+const cards: CardProps[] = entries.map(
+  ({ name: title, location, site, image, url }) => ({
+    title,
+    location,
+    site,
+    image: { url: image, alt: `Établissement ${title}` },
+    url,
+  })
+);
 ---
 
 <Layout title="Établissements">
