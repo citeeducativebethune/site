@@ -1,7 +1,6 @@
 ---
 import type { Props as CardProps } from "@components/Card/Card.astro";
 import CardList from "@components/CardList.astro";
-import Card from "@components/Card/Card.astro";
 import Section from "@components/Section.astro";
 import Layout from "@layouts/Layout.astro";
 import { getEtablissements } from "@libs/getData";
@@ -29,19 +28,7 @@ const cards: CardProps[] = entries.map(
       </p>
     </Section>
     <Section>
-      <div class="ram">
-        {
-          entries.map(({ name, image, location, site, url }) => (
-            <Card
-              title={name}
-              {site}
-              {location}
-              image={{ url: image, alt: `Établissement ${name}` }}
-              {url}
-            />
-          ))
-        }
-      </div>
+      <CardList items={cards} />
     </Section>
   </main>
 </Layout>
