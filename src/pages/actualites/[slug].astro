@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Prose from "@components/Prose.astro";
 import { getActus } from "@libs/getData/actus.js";
-import imageTest from "../../assets/uploads/jardins.jpeg";
 import type {
   GetStaticPaths,
   InferGetStaticParamsType,
@@ -30,7 +29,7 @@ const { Content } = await render();
 
 <Layout {title}>
   <main>
-    <div class="wrapper">
+    <div class="">
       <div class="hero-img" data-type="full-bleed">
         <Image
           width={1600}
@@ -38,13 +37,10 @@ const { Content } = await render();
           sizes="100vw"
           format="png"
           alt={altImage}
-          src={imageTest}
+          src={image}
         />
       </div>
-      <header
-        data-type="narrow"
-        class="bg-surface-1 text-align:center py-l px-2xs"
-      >
+      <header class="bg-surface-1 text-align:center py-l px-2xs">
         <time>{date}</time>
         <h1>{title}</h1>
         <p>
@@ -72,6 +68,8 @@ const { Content } = await render();
   header {
     position: relative;
     border-block-end: 1px solid var(--clr-border-1);
+    max-inline-size: clamp(16rem, 90vw, 40rem);
+    margin-inline: auto;
   }
   header > * {
     margin-inline: auto;

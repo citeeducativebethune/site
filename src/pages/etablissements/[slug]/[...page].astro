@@ -4,22 +4,23 @@ import Pagination from "@components/Pagination.astro";
 import Section from "@components/Section.astro";
 import Layout from "@layouts/Layout.astro";
 import { getActus } from "@libs/getData/actus.js";
-import { getEtablissements } from "@libs/getData/etablissements.js";
-import type { GetStaticPaths, Page } from "astro";
+import { getEtablissements, getEtablissementbySlug } from "@libs/getData";
+import type { GetStaticPaths, InferGetStaticParamsType, Page } from "astro";
 import type { CollectionEntry } from "astro:content";
 import type { Props as CardProps } from "@components/Card/Card.astro";
 
-export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+export const getStaticPaths = (async ({ paginate }) => {
   const etablissements = await getEtablissements();
   const allActus = await getActus();
-  return etablissements.map(({ slug, name }) => {
+  return etablissements?.map(({ slug, name }) => {
     const actus = allActus.filter((el) => el.data.etablissement === name);
-    return paginate(actus, { params: { slug }, pageSize: 2 });
+    return paginate(actus, { params: { slug }, pageSize: 3 });
   });
-};
-
+}) satisfies GetStaticPaths;
+const { slug } = Astro.params;
 const { page } = Astro.props as { page: Page<CollectionEntry<"actualites">> };
 const actualites = page.data;
+const etablissement = await getEtablissementbySlug(slug ?? "");
 const cards: CardProps[] = actualites.map((el) => ({
   title: el.data.title,
   image: { url: el.data.image, alt: el.data.altImage },
@@ -32,16 +33,10 @@ const cards: CardProps[] = actualites.map((el) => ({
 <Layout title="Collège Paul Verlaine">
   <main class="flow">
     <Section shape="bottom" color="surface-2">
-      <h1 class="text-align:center">Collège Paul Verlaine</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </p>
+      <div class="wrapper flow">
+        <h1 class="text-align:center">{etablissement?.name}</h1>
+        {etablissement?.description && <p>{etablissement.description}</p>}
+      </div>
     </Section>
     <CardList items={cards} />
     <Pagination {page} />

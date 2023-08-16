@@ -8,10 +8,14 @@ interface Props {
   site?: string;
 }
 const { description, mail, phone, location, site } = Astro.props;
+const shortDescription =
+  !description || description.length < 70
+    ? description
+    : description?.slice(0, 70)?.split(" ")?.slice(0, -1).join(" ") + "...";
 ---
 
-<div class="content flow">
-  {description && <p>{description}</p>}
+<div class="content flow px-xs">
+  {shortDescription && <p>{shortDescription}</p>}
   {
     (mail || phone || location || site) && (
       <ul role="list">

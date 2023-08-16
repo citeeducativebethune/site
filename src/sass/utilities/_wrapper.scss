@@ -1,18 +1,10 @@
 @use "../abstracts" as *;
-.wrapper > * {
+.wrapper {
   margin-inline: auto;
-  --max-width: #{$wrapper-size};
-  --padding: #{$wrapper-padding};
-  inline-size: min(100% - var(--padding) * 2, var(--max-width));
-  margin-inline: auto;
-  &[data-type="narrow"] {
-    --max-width: #{$wrapper-size-narrow};
-  }
-  &[data-type="wide"] {
-    --max-width: #{$wrapper-size-wide};
-  }
-  &[data-type="full-bleed"] {
-    --max-width: 100%;
-    --padding: 0;
-  }
+  width: min(66ch, 100% - var(--s-l));
+  position: relative;
+}
+
+.wrapper[data-type="wide"] {
+  width: clamp(16rem, 85vw, 85rem);
 }

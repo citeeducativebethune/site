@@ -20,12 +20,15 @@ const cards: CardProps[] = entries.map(
 <Layout title="Établissements">
   <main class="flow">
     <Section shape="bottom" color="secondary-1">
-      <h1 class="clr-surface-1 text-align:center">Établissements</h1>
-      <p class="clr-surface-1">
-        Les cités éducatives consistent en une grande alliance des acteurs
-        éducatifs dans les quartiers prioritaires de la politique de la ville :
-        parents, services de l’État, des collectivités, associations, habitants.
-      </p>
+      <div class="wrapper flow">
+        <h1 class="clr-surface-1 text-align:center">Établissements</h1>
+        <p class="clr-surface-1">
+          Les cités éducatives consistent en une grande alliance des acteurs
+          éducatifs dans les quartiers prioritaires de la politique de la ville
+          : parents, services de l’État, des collectivités, associations,
+          habitants.
+        </p>
+      </div>
     </Section>
     <Section>
       <CardList items={cards} />

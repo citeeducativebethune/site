@@ -9,7 +9,7 @@ const { lastPage, currentPage, url } = page;
 
 {
   lastPage !== 1 && (
-    <div class="wrapper">
+    <div class="wrapper" data-type="wide">
       <nav aria-label="pagination" class="py-m px-s">
         {url.prev && (
           <a href={url.prev} class="prev">

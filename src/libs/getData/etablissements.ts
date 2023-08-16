@@ -11,3 +11,8 @@ export const getEtablissements = async () => {
     };
   });
 };
+
+export const getEtablissementbySlug = async (slug: string) => {
+  const etablissements = await getEtablissements();
+  return etablissements.find((el) => slug === el.slug);
+};

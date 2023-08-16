@@ -8,7 +8,7 @@ const { color, shape } = Astro.props;
 ---
 
 <section style={color && `--_bg:var(--clr-${color})`} class={clsx(shape)}>
-  <div class=`container | wrapper flow` style="--flow-space:var(--s-m);">
+  <div class=`container ` style="--flow-space:var(--s-m);">
     <slot />
   </div>
 </section>
@@ -18,11 +18,12 @@ const { color, shape } = Astro.props;
     --_p-top: var(--s-m);
     --_p-bottom: var(--s-m);
   }
+
   section:where(.bottom, .both)::after {
     --_p-bottom: 0;
     content: "";
     display: block;
-    height: var(--s-2xl);
+    height: var(--s-l);
     background: var(--_bg);
     clip-path: url(#bottomwave);
     transform: translateY(-1px);

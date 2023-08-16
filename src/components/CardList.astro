@@ -1,8 +1,7 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import type { Props as CardProps } from "@components/Card/Card.astro";
 import Card from "@components/Card/Card.astro";
 import Section from "@components/Section.astro";
-import type { Props as CardProps } from "@components/Card/Card.astro";
 interface Props {
   items: CardProps[];
 }
@@ -12,9 +11,11 @@ const { items } = Astro.props;
 <Section>
   {
     items.length === 0 ? (
-      <p class="text-align:center">Pas d'actualites pour le moment</p>
+      <div class="wraper">
+        <p class="text-align:center">Pas d'actualites pour le moment</p>
+      </div>
     ) : (
-      <div class="ram">
+      <div class="ram wrapper" data-type="wide">
         {items.map((item) => (
           <Card {...item} />
         ))}

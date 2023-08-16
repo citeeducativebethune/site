@@ -13,32 +13,36 @@ const actus = (await getActus()).slice(0, 3);
 <Layout title="Accueil">
   <main class="flow" style="--flow-space:var(--s-m);">
     <Section color="primary" shape="bottom">
-      <h2 class="text-align:center h1 clr-surface-1">Actualités</h2>
-      <div class="ram">
-        {
-          actus.map(({ data, slug }) => (
-            <Card
-              title={data.title}
-              description={data.description}
-              image={{ url: data.image, alt: data.altImage }}
-              date={data.date}
-              tag={data.etablissement}
-              url={`/actualites/${slug}`}
-            />
-          ))
-        }
+      <div class="flow">
+        <h2 class="text-align:center h1 clr-surface-1">Actualités</h2>
+        <div class="wrapper ram" data-type="wide">
+          {
+            actus.map(({ data, slug }) => (
+              <Card
+                title={data.title}
+                description={data.description}
+                image={{ url: data.image, alt: data.altImage }}
+                date={data.date}
+                tag={data.etablissement}
+                url={`/actualites/${slug}`}
+              />
+            ))
+          }
+        </div>
       </div>
     </Section>
     <Section>
-      <h2 class="h1 text-align:center">Les Établissements</h2>
-      <div class="ram">
-        {
-          etablissements.map(({ name, url }) => (
-            <TextCard background="secondary-1" color="surface-1" {url}>
-              <p class="text-align:center">{name}</p>
-            </TextCard>
-          ))
-        }
+      <div class="flow">
+        <h2 class="h1 text-align:center">Les Établissements</h2>
+        <div class="ram wrapper" data-type="wide">
+          {
+            etablissements.map(({ name, url }) => (
+              <TextCard background="secondary-1" color="surface-1" {url}>
+                <p class="text-align:center">{name}</p>
+              </TextCard>
+            ))
+          }
+        </div>
       </div>
     </Section>
   </main>

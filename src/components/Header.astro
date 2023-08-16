@@ -3,9 +3,9 @@
     <img src="/logo.jpg" alt="logo de la cité éducativie" />
   </a>
   <nav>
-    <ul class="cluster" role="list">
+    <ul role="list">
       <li><a href="/actualites">Actualités</a></li>
-      <li><a href="/etablissements">Les Établissements</a></li>
+      <li><a href="/etablissements">Établissements</a></li>
       <li><a href="/apropos">À Propos</a></li>
     </ul>
   </nav>
@@ -19,20 +19,26 @@
     flex-direction: column;
     flex-wrap: wrap;
     padding-block: var(--s-xs);
-    padding-inline: var(--s-s);
   }
-  @media screen and (min-width: 35rem) {
-    header {
-      flex-direction: unset;
-      justify-content: space-between;
-    }
-  }
+
   nav ul {
-    gap: var(--s-s);
-    padding-inline: var(--s-s);
+    gap: var(--s-xs);
+    display: flex;
+    justify-content: space-between;
   }
   a {
     text-decoration: none;
     color: var(--clr-text-2);
+  }
+
+  @media screen and (min-width: 35rem) {
+    header {
+      flex-direction: row;
+      justify-content: space-between;
+      padding-inline: var(--s-m);
+    }
+    nav ul {
+      gap: var(--s-m);
+    }
   }
 </style>

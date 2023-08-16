@@ -1,4 +1,9 @@
 export type ImageRef = {
-  url: string;
+  url: {
+    src: string;
+    width: number;
+    height: number;
+    format: "png" | "jpg" | "jpeg" | "tiff" | "webp" | "gif" | "svg";
+  };
   alt?: string;
 };

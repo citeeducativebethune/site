@@ -1,6 +1,7 @@
 ---
 import type { ImageRef } from "@libs/types/image";
 import { Image } from "astro:assets";
+import clsx from "clsx";
 
 interface Props {
   image?: ImageRef;
@@ -13,7 +14,7 @@ const { image, title, url, date } = Astro.props;
 
 {
   url ? (
-    <a href={url}>
+    <a href={url} class="card-main-link">
       {image && (
         <Image
           src={image.url}
@@ -39,9 +40,9 @@ const { image, title, url, date } = Astro.props;
 
 {
   title && (
-    <h3 class="font-base h4">
+    <h3 class={clsx("font-base h4 px-xs", !image && "pt-s")}>
       {url ? (
-        <a href={url} class="clr-text-1">
+        <a href={url} class="card-main-link clr-text-1">
           {title}
         </a>
       ) : (
@@ -53,16 +54,13 @@ const { image, title, url, date } = Astro.props;
 
 {
   date && (
-    <div>
+    <div class="px-xs">
       <time class="clr-border-2 ">{date}</time>
     </div>
   )
 }
 
 <style>
-  .h4 {
-    font-weight: 500;
-  }
   img {
     width: 100%;
     aspect-ratio: 5/3;
@@ -70,5 +68,11 @@ const { image, title, url, date } = Astro.props;
   }
   a {
     text-decoration: none;
+    transition: color.3s;
+    color: inherit;
+  }
+  a:hover,
+  a:focus-visible {
+    color: var(--clr-secondary-2);
   }
 </style>

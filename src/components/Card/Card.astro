@@ -20,20 +20,25 @@ export interface Props {
 const props = Astro.props;
 ---
 
-<article class={clsx("flow", "p-s", props.url && "card-link")}>
+<article class={clsx("flow", "pb-s", props.url && "card-link")}>
   <Header {...props} />
   <Content {...props} />
-  <Footer {...props} />
+  <!-- <Footer {...props} /> -->
 </article>
 <style>
   article {
     background: var(--clr-surface-1);
     border: solid var(--clr-border-1);
-    border-radius: 0.5rem;
+    border-radius: 0.8rem;
     --flow-space: var(--s-xs);
     container-type: inline-size;
+    transition: transform 0.3s;
+    overflow: hidden;
   }
   .card-link:where(:hover, :focus-visible) {
     background: var(--clr-surface-2);
+  }
+  .card-link:has(.card-main-link:where(:hover, :focus-visible)) {
+    transform: scale(0.97);
   }
 </style>

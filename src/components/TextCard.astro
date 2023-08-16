@@ -7,24 +7,33 @@ interface Props {
 const { background = "surface-1", color = "text-1", url } = Astro.props;
 ---
 
-<article class={`bg-${background} clr-${color} p-s fs-1`}>
-  {
-    url ? (
-      <a href={url}>
+{
+  url ? (
+    <a href={url} class={`bg-${background} clr-${color} fs-1 p-xs `}>
+      <p>
         <slot />
-      </a>
-    ) : (
-      <slot />
-    )
-  }
-</article>
+      </p>
+    </a>
+  ) : (
+    <article class={`bg-${background} clr-${color} fs-1 p-xs `}>
+      <p>
+        <slot />
+      </p>
+    </article>
+  )
+}
 <style>
+  a,
   article {
+    color: inherit;
     border-radius: 1rem;
     font-weight: 600;
-  }
-  a {
-    color: inherit;
+    transition: transform 0.3s;
     text-decoration: none;
+    vertical-align: middle;
+  }
+  a:where(:hover, :focus-visible) {
+    transform: scale(0.97);
+    color: red;
   }
 </style>
