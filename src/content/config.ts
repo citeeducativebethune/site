@@ -22,6 +22,7 @@ const actuCollection = defineCollection({
     date: z.string(),
     image: z.string(),
     altImage: z.string(),
+    author: z.string().optional(),
   }),
 });
 

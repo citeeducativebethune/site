@@ -48,3 +48,10 @@ h5 {
 p {
   max-inline-size: 65ch;
 }
+
+blockquote {
+  padding-inline-start: var(--s-xs);
+  border-inline-start: 5px solid var(--clr-text-1);
+  font-size: var(--fs-1);
+  color: var(--clr-text-2);
+}

@@ -8,6 +8,12 @@
     <title>Content Manager</title>
     <!-- Include the script that allow authentification -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <style>
+        /* https://github.com/decaporg/decap-cms/issues/5092 */
+        [data-slate-editor] {
+            -webkit-user-modify: read-write !important;
+        }
+    </style>
 </head>
 
 <body>

@@ -1,0 +1,37 @@
+@use "../abstracts" as *;
+.prose {
+  display: grid;
+  grid-template-columns:
+    #{$wrapper-padding}
+    [full-start] minmax(auto, 1fr) [wide-start] minmax(auto, 1fr) [main-start] min(
+      100% - #{$wrapper-padding} * 2,
+      65ch
+    )
+    [main-end] minmax(auto, 1fr)
+    [wide-end] #{$wrapper-padding}
+    [full-end] minmax(auto, 1fr);
+  row-gap: var(--s-s);
+
+  a {
+    color: var(--clr-secondary-2);
+    &:hover {
+      color: var(--clr-secondary-1);
+    }
+  }
+  //   h1,
+  //   h2,
+  //   h3,
+  //   h4,
+  //   h5 {
+  //     padding-block-start: 0.2em;
+  //   }
+}
+
+.prose > * {
+  grid-column: main;
+}
+
+.prose img {
+  grid-column: wide;
+  margin-inline: auto;
+}

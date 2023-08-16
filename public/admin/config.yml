@@ -40,6 +40,7 @@ collections:
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
     fields: # The fields for each document, usually in front matter
       - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Auteur", name: "author", widget: "string" }
       - {
           label: "Établissement",
           name: "etablissement",

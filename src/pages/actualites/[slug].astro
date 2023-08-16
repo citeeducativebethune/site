@@ -1,0 +1,79 @@
+---
+import { Image } from "@astrojs/image/components";
+import Layout from "@layouts/Layout.astro";
+import Prose from "@components/Prose.astro";
+import { getActus } from "@libs/getData/actus.js";
+import type {
+  GetStaticPaths,
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+} from "astro";
+
+export const getStaticPaths = (async () => {
+  const actus = await getActus();
+  return actus.map((post) => {
+    return {
+      params: { slug: post.slug },
+      props: { ...post },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { data, render } = Astro.props as Props;
+const { title, image, altImage, date, author, etablissement } = data;
+const { Content } = await render();
+---
+
+<Layout {title}>
+  <main>
+    <div class="wrapper">
+      <div class="hero-img" data-type="full-bleed">
+        <Image
+          width={1600}
+          height={480}
+          sizes="100vw"
+          format="png"
+          alt={altImage}
+          src={import(`/public/${image}`)}
+          fit="cover"
+        />
+      </div>
+      <header
+        data-type="narrow"
+        class="bg-surface-1 text-align:center py-l px-2xs"
+      >
+        <time>{date}</time>
+        <h1>{title}</h1>
+        <p>
+          {author ? `${author}, ${etablissement}` : etablissement}
+        </p>
+      </header>
+    </div>
+    <Prose>
+      <Content />
+    </Prose>
+  </main>
+</Layout>
+
+<style>
+  .hero-img {
+    margin-block-end: calc(-1 * var(--s-l));
+  }
+  .hero-img img {
+    width: 100%;
+    max-width: 100rem;
+    max-height: 30rem;
+    object-fit: cover;
+    margin-inline: auto;
+  }
+  header {
+    position: relative;
+    border-block-end: 1px solid var(--clr-border-1);
+  }
+  header > * {
+    margin-inline: auto;
+  }
+</style>
