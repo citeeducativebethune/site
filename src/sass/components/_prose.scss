@@ -34,4 +34,7 @@
 .prose img {
   grid-column: wide;
   margin-inline: auto;
+  // object-fit: contain;
+  width: 100%;
+  height: auto;
 }

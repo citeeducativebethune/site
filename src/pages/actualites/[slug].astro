@@ -1,8 +1,9 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Prose from "@components/Prose.astro";
 import { getActus } from "@libs/getData/actus.js";
+import imageTest from "../../assets/uploads/jardins.jpeg";
 import type {
   GetStaticPaths,
   InferGetStaticParamsType,
@@ -37,8 +38,7 @@ const { Content } = await render();
           sizes="100vw"
           format="png"
           alt={altImage}
-          src={image}
-          fit="cover"
+          src={imageTest}
         />
       </div>
       <header

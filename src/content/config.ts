@@ -15,15 +15,16 @@ const etablissementsCollection = defineCollection({
 
 const actuCollection = defineCollection({
   type: "content", // v2.5.0 and later
-  schema: z.object({
-    title: z.string(),
-    etablissement: z.string(),
-    description: z.string(),
-    date: z.string(),
-    image: z.string(),
-    altImage: z.string(),
-    author: z.string().optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      etablissement: z.string(),
+      description: z.string(),
+      date: z.string(),
+      image: image(),
+      altImage: z.string(),
+      author: z.string().optional(),
+    }),
 });
 
 const contactCollection = defineCollection({

@@ -6,28 +6,29 @@ description: A la rentrée 2022, les écoles maternelles du quartier ont souhait
   s'impliquer dans un projet commun en louant un espace au sein des jardins
   familiaux de Béthune.
 date: 15-08-2023
-image: /images/uploads/jardins.jpeg
+image: ../../assets/uploads/jardins.jpeg
 altImage: Des enfants jardinent
 ---
+
 ## T﻿itre 1
 
-Les écoles maternelles Gérard Philipe, [Marcel Proust](http://example.com) et Jean Montalat loue depuis le début de l'année 2023 une parcelle de jardin. Chaque classe s'approprie son espace et   jardine également au sein de son école dans des bacs. Fleurs, fruits, légumes, aménagements et décorations sont autant de prétextes à la découverte pour les élèves.
+Les écoles maternelles Gérard Philipe, [Marcel Proust](http://example.com) et Jean Montalat loue depuis le début de l'année 2023 une parcelle de jardin. Chaque classe s'approprie son espace et jardine également au sein de son école dans des bacs. Fleurs, fruits, légumes, aménagements et décorations sont autant de prétextes à la découverte pour les élèves.
 
 ## titre 2
 
 ### titre 3
 
-« Regardez la **verveine** ! Vous avez vu les radis ?, lance la maîtresse. Oh ils ont été mangés... ». « J’ai une coccinelle sur mes cheveux ! » crie un petit *garçon* dans l’une des allées. Vous l’aurez compris, ces temps d’apprentissage sont complémentaires à ceux qui se font en classe. Dans cette grande section dédoublée, les enfants qui se rendent au potager observent le jardin, ce qui s’y passe, font leurs expériences et travaillent le vocabulaire qui va avec. Ils mettent aussi en pratique ce qu’ils ***ont appris et respectent de plus en plus leur environnement.***
+« Regardez la **verveine** ! Vous avez vu les radis ?, lance la maîtresse. Oh ils ont été mangés... ». « J’ai une coccinelle sur mes cheveux ! » crie un petit _garçon_ dans l’une des allées. Vous l’aurez compris, ces temps d’apprentissage sont complémentaires à ceux qui se font en classe. Dans cette grande section dédoublée, les enfants qui se rendent au potager observent le jardin, ce qui s’y passe, font leurs expériences et travaillent le vocabulaire qui va avec. Ils mettent aussi en pratique ce qu’ils **_ont appris et respectent de plus en plus leur environnement._**
 
 > enfants qui se rendent au potager observent le jardin, ce qui s’y passe, font leurs expériences et travaillent le vocabulaire qui va avec. Ils mettent aussi en pratique ce qu’ils ont appris et respectent de plus en plus leur environnement.
 
-* Cinq
-* Deux
-* les enfants qui se rendent au potager observent le jardin, ce qui s’y passe, font leurs expériences et travaillent le vocabulaire qui va avec. Ils mettent aussi en pratique ce qu’ils ont appris et respectent de plus en plus leur environnement.
-* Trois
-* Un
+- Cinq
+- Deux
+- les enfants qui se rendent au potager observent le jardin, ce qui s’y passe, font leurs expériences et travaillent le vocabulaire qui va avec. Ils mettent aussi en pratique ce qu’ils ont appris et respectent de plus en plus leur environnement.
+- Trois
+- Un
 
-![](/images/uploads/jardins.jpeg)
+![](~/assets/uploads/jardins.jpeg)
 
 «Regardez la verveine ! Vous avez vu les radis ?, lance la maîtresse. Oh ils ont été mangés...». « J’ai une coccinelle sur mes cheveux ! » crie un petit garçon dans l’une des allées. Vous l’aurez compris, ces temps d’apprentissage sont complémentaires à ceux qui se font en classe. Dans cette grande section dédoublée, les enfants qui se rendent au potager observent le jardin, ce qui s’y passe, font leurs expériences et travaillent le vocabulaire qui va avec. Ils mettent aussi en pratique ce qu’ils ont appris et respectent de plus en plus leur environnement.
 

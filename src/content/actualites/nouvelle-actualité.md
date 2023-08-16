@@ -1,9 +1,9 @@
 ---
-title: Nouvelle Actualité
+title: Coucou
 etablissement: École Maternelle Buisson
 description: "Une Actualité incontournable ! "
 date: 14-08-2023
-image: /images/uploads/capture-d’écran-2023-07-13-à-11.41.33.png
+image: ~/assets/uploads/jardins.jpeg
 altImage: Truc Bidule
 ---
 
