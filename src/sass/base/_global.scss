@@ -44,7 +44,14 @@ h4 {
 h5 {
   font-size: var(--fs-1);
 }
-p {
+
+:focus-visible {
+  outline-color: var(--clr-secondary-1);
+  transition: outline-offset, 0.15s ease-in;
+}
+
+:not(:active):focus-visible {
+  outline-offset: 5px;
 }
 
 blockquote {

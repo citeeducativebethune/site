@@ -17,7 +17,7 @@ const { lastPage, currentPage, url } = page;
           </a>
         )}
         <div
-          class="current | text-align:center bg-surface-2 px-xs py-3xs"
+          class="current | text-align:center px-xs py-3xs"
           role="presentation"
         >
           Page {currentPage} sur {lastPage}
@@ -38,22 +38,32 @@ const { lastPage, currentPage, url } = page;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
   }
-  .current {
-    grid-column: 2;
+  .prev {
+    margin-inline-end: auto;
   }
   .next {
-    grid-column: -1;
+    grid-column: 3;
+    margin-inline-start: auto;
   }
   a {
     text-decoration: none;
     color: inherit;
+    padding: var(--s-2xs);
   }
   .current {
+    grid-column: 2;
     border: solid var(--clr-border-1);
   }
   @media screen and (max-width: 25rem) {
     .current {
       display: none;
     }
+  }
+  a:hover {
+    background: var(--clr-surface-2);
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.1),
+      0px 8px 8px 1px rgba(0, 0, 0, 0.07), 0px 3px 8px 2px rgba(0, 0, 0, 0.08);
+    transition: transform 200ms linear, box-shadow 200ms linear,
+      filter 400ms ease;
   }
 </style>
