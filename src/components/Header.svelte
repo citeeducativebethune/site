@@ -1,4 +1,20 @@
-<header>
+<script lang="ts">
+  let y: number;
+  let scrollDirection = 0;
+  let lastScroll: number;
+  let headerHeight: number;
+  $: {
+    scrollDirection = Math.sign(y - (lastScroll ?? y));
+    lastScroll = y;
+  }
+</script>
+
+<svelte:window bind:scrollY={y} />
+<header
+  data-js="header"
+  class:hideHeader={scrollDirection === 1 && y > headerHeight}
+  bind:offsetHeight={headerHeight}
+>
   <a href="/" class="logo" title="Accueil">
     <img src="/logo.jpg" alt="logo de la cité éducativie" />
   </a>
@@ -13,16 +29,26 @@
 
 <style>
   header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background: var(--clr-surface-1);
     display: flex;
     align-items: center;
+    gap: var(--s-s);
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
     padding-block: var(--s-xs);
+    transition: transform 0.25s ease-in;
+  }
+
+  header.hideHeader {
+    transform: translateY(-100%);
   }
 
   nav ul {
-    gap: var(--s-xs);
+    gap: var(--s-s);
     display: flex;
     justify-content: space-between;
   }
@@ -31,11 +57,12 @@
     color: var(--clr-text-2);
   }
 
-  @media screen and (min-width: 35rem) {
+  @media screen and (min-width: 36rem) {
     header {
       flex-direction: row;
       justify-content: space-between;
       padding-inline: var(--s-m);
+      gap: 0;
     }
     nav ul {
       gap: var(--s-m);
