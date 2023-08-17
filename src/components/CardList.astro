@@ -4,8 +4,9 @@ import Card from "@components/Card/Card.astro";
 import Section from "@components/Section.astro";
 interface Props {
   items: CardProps[];
+  alignItemsCenter?: boolean;
 }
-const { items } = Astro.props;
+const { items, alignItemsCenter } = Astro.props;
 ---
 
 <Section>
@@ -15,7 +16,11 @@ const { items } = Astro.props;
         <p class="text-align:center">Pas d'actualites pour le moment</p>
       </div>
     ) : (
-      <div class="ram wrapper" data-type="wide">
+      <div
+        class="ram wrapper"
+        data-type="wide"
+        data-align={alignItemsCenter && "center"}
+      >
         {items.map((item) => (
           <Card {...item} />
         ))}

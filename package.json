@@ -13,11 +13,11 @@
   "dependencies": {
     "@fontsource/averia-sans-libre": "^5.0.8",
     "astro": "^2.10.1",
-    "clsx": "^2.0.0",
-    "netlify-cms-proxy-server": "^1.3.24",
-    "sharp": "^0.32.4"
+    "clsx": "^2.0.0"
   },
   "devDependencies": {
+    "sharp": "^0.32.4",
+    "netlify-cms-proxy-server": "^1.3.24",
     "remark-unwrap-images": "^3.0.1",
     "sass": "^1.64.2"
   }

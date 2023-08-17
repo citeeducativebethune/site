@@ -1,5 +1,6 @@
 ---
 import Icon from "@components/Icon.astro";
+import { addNonBreakSpaces, shortText } from "@libs/processText";
 interface Props {
   description?: string;
   mail?: string;
@@ -8,14 +9,13 @@ interface Props {
   site?: string;
 }
 const { description, mail, phone, location, site } = Astro.props;
-const shortDescription =
-  !description || description.length < 70
-    ? description
-    : description?.slice(0, 70)?.split(" ")?.slice(0, -1).join(" ") + "...";
+const shortDescription = !description
+  ? description
+  : shortText(addNonBreakSpaces(description), 70);
 ---
 
 <div class="content flow px-xs">
-  {shortDescription && <p>{shortDescription}</p>}
+  {description && <p>{shortDescription}</p>}
   {
     (mail || phone || location || site) && (
       <ul role="list">

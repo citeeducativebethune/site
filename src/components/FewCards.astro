@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Card from "./Card/Card.astro";
+interface Props {
+  actus: CollectionEntry<"actualites">[];
+}
+const actus = (await Astro.props.actus).slice(0, 3);
+---
+
+<div class="container" data-type="wide">
+  {
+    actus.map(({ data, slug }) => (
+      <Card
+        title={data.title}
+        description={data.description}
+        image={{ url: data.image, alt: data.altImage }}
+        date={data.date}
+        tag={data.etablissement}
+        url={`/actualites/${slug}`}
+      />
+    ))
+  }
+</div>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--s-xl);
+    row-gap: var(--s-s);
+    padding-inline: var(--s-m);
+  }
+</style>

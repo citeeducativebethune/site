@@ -1,5 +1,5 @@
 ---
-import Card from "@components/Card/Card.astro";
+import FewCards from "@components/FewCards.astro";
 import Section from "@components/Section.astro";
 import TextCard from "@components/TextCard.astro";
 import Layout from "@layouts/Layout.astro";
@@ -7,7 +7,7 @@ import { getActus } from "@libs/getData/actus.js";
 import { getEtablissements } from "@libs/getData/etablissements.js";
 
 const etablissements = await getEtablissements();
-const actus = (await getActus()).slice(0, 3);
+const actus = await getActus();
 ---
 
 <Layout title="Accueil">
@@ -15,26 +15,13 @@ const actus = (await getActus()).slice(0, 3);
     <Section color="primary" shape="bottom">
       <div class="flow">
         <h2 class="text-align:center h1 clr-surface-1">Actualités</h2>
-        <div class="wrapper ram" data-type="wide">
-          {
-            actus.map(({ data, slug }) => (
-              <Card
-                title={data.title}
-                description={data.description}
-                image={{ url: data.image, alt: data.altImage }}
-                date={data.date}
-                tag={data.etablissement}
-                url={`/actualites/${slug}`}
-              />
-            ))
-          }
-        </div>
+        <FewCards {actus} />
       </div>
     </Section>
     <Section>
       <div class="flow">
         <h2 class="h1 text-align:center">Les Établissements</h2>
-        <div class="ram wrapper" data-type="wide">
+        <div class="ram wrapper" data-type="wide" data-align="center">
           {
             etablissements.map(({ name, url }) => (
               <TextCard background="secondary-1" color="surface-1" {url}>
