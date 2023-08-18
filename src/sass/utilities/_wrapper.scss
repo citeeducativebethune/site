@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 .wrapper {
   margin-inline: auto;
-  width: min(66ch, 100% - var(--s-l));
+  width: clamp(16rem, 77vw, min(66ch, 100% - var(--s-l)));
   position: relative;
 }
 

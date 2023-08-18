@@ -6,7 +6,8 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: masonry;
   gap: var(--gap, $grid-gap);
-  justify-items: center;
+  column-gap: var(--s-xl);
+  row-gap: var(--s-l);
 
   @media screen and (max-width: 60rem) {
     grid-template-columns: 1fr;

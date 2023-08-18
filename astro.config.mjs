@@ -5,14 +5,15 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
+  outDir: "docs",
   experimental: {
-    assets: true
+    assets: true,
   },
   image: {
-    service: sharpImageService()
+    service: sharpImageService(),
   },
   markdown: {
-    remarkPlugins: [unwrapImages]
+    remarkPlugins: [unwrapImages],
   },
-  integrations: [svelte()]
+  integrations: [svelte()],
 });

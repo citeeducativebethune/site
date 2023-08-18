@@ -1,0 +1,87 @@
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+media_folder: "src/assets/uploads" # Media files will be stored in the repo under static/images/uploads
+public_folder: "~/assets/uploads" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "etablissements"
+    label: "Établissements"
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    folder: "src/content/etablissements"
+    create: true
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+        }
+      - {
+          label: "Adresse",
+          name: "location",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Site Internet",
+          name: "site",
+          widget: "string",
+          required: false,
+        }
+      - { label: "Image", name: "image", widget: "image" }
+  - name: "actualites" # Used in routes, e.g., /admin/collections/blog
+    label: "Actualités" # Used in the UI
+    folder: "src/content/actualites" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    # slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Auteur", name: "author", widget: "string" }
+      - {
+          label: "Établissement",
+          name: "etablissement",
+          widget: "relation",
+          collection: "etablissements",
+          value_field: "name",
+          search_fields: ["name"],
+        }
+      - { label: "Description", name: "description", widget: "string" }
+      - {
+          label: "Date",
+          name: "date",
+          widget: "datetime",
+          format: "DD-MM-YYYY",
+        }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "text alternatif", name: "altImage", widget: "string" }
+      - { label: "Contenu de l'article", name: "body", widget: "markdown" }
+  - name: "contacts" # Used in routes, e.g., /admin/collections/blog
+    label: "Contacts" # Used in the UI
+    folder: "src/content/contacts" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{fields.name}}"
+    # slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields:
+      - { label: "Nom", name: "name", widget: "string" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: true,
+        }
+      - {
+          label: "Adresse Email",
+          name: "mail",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Numéro de téléphone",
+          name: "phoneNumber",
+          widget: "string",
+          required: false,
+        }

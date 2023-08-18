@@ -1,10 +1,9 @@
 ---
+import Header from "@components/Header.svelte";
+import Symbols from "@components/Symbols.astro";
 import "@fontsource/averia-sans-libre/400.css";
 import "@fontsource/averia-sans-libre/700.css";
 import "@sass/index.scss";
-import Symbols from "@components/Symbols.astro";
-import Header from "@components/Header.svelte";
-import SectionShape from "@components/SectionShape.svelte";
 
 interface Props {
   title: string;
@@ -23,7 +22,6 @@ const { title } = Astro.props;
   <body>
     <Symbols />
     <Header client:idle />
-    <!-- <SectionShape client:idle /> -->
     <slot />
   </body>
 </html>

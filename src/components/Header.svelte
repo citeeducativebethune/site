@@ -40,7 +40,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     padding-block: var(--s-xs);
-    transition: transform 0.25s ease-in;
+    transition: transform 0.4s cubic-bezier(1, 0.26, 0.51, 0.72);
   }
 
   header.hideHeader {

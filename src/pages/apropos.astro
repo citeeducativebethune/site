@@ -20,7 +20,7 @@ const contactCards: CardProps[] = contacts.map(
 <Layout title="À Propos">
   <main class="flow">
     <Section shape="bottom" color="secondary-2">
-      <div class="wrapper flow">
+      <div class="wrapper flow" style="--flow-space:var(--s-xl)">
         <h1 class="clr-surface-1 text-align:center">
           La cité éducative de Béthune
         </h1>
@@ -38,7 +38,11 @@ const contactCards: CardProps[] = contacts.map(
       </div>
     </Section>
     <Section>
-      <div class="wrapper flow" data-type="wide">
+      <div
+        class="wrapper flow"
+        data-type="wide"
+        style="--flow-space:var(--s-xl)"
+      >
         <h2 class="h1 text-align:center">Le Périmètre de la cité éducative</h2>
         <div class="two-columns mt-m px-s">
           <p>
@@ -57,7 +61,11 @@ const contactCards: CardProps[] = contacts.map(
       </div>
     </Section>
     <Section shape="both" color="primary">
-      <div class="wrapper flow" data-type="wide">
+      <div
+        class="wrapper flow"
+        data-type="wide"
+        style="--flow-space:var(--s-xl)"
+      >
         <h2 class="h1 clr-surface-1 text-align:center">Les Enjeux</h2>
         <div class="two-columns">
           <TextCard>
@@ -81,3 +89,8 @@ const contactCards: CardProps[] = contacts.map(
     </Section>
   </main>
 </Layout>
+<style>
+  .two-columns img {
+    justify-self: center;
+  }
+</style>
