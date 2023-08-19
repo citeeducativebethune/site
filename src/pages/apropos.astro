@@ -5,9 +5,12 @@ import Letters from "@components/Letters.astro";
 import Section from "@components/Section.astro";
 import TextCard from "@components/TextCard.astro";
 import Layout from "@layouts/Layout.astro";
-import { getContacts } from "@libs/getData/contacts.js";
+import { getContacts, getAbout } from "@libs/getData";
 import { Image } from "astro:assets";
 import imageMap from "~/assets/map.png";
+
+const pageData = getAbout();
+console.log(pageData);
 
 const contacts = await getContacts();
 const contactCards: CardProps[] = contacts.map(
@@ -27,17 +30,7 @@ const contactCards: CardProps[] = contacts.map(
         <h1 class="clr-surface-1 text-align:center">
           La cité éducative de Béthune
         </h1>
-        <p class="clr-surface-1">
-          Les Cités éducatives visent à intensifier les prises en charge
-          éducatives des enfants et des jeunes, de la naissance à l’insertion
-          professionnelle, avant, pendant, autour et après le cadre scolaire.
-          Elles consistent en une grande alliance des acteurs éducatifs dans les
-          quartiers prioritaires de la politique de la ville : parents, services
-          de l’État, des collectivités, associations, habitants. À travers les
-          Cités éducatives, le Gouvernement veut ainsi fédérer tous les acteurs
-          de l’éducation scolaire et périscolaire, dans les territoires qui en
-          ont le plus besoin et où seront concentrés les moyens publics.
-        </p>
+        <p class="clr-surface-1" set:html={pageData.description} />
       </div>
     </Section>
     <Section>
@@ -50,17 +43,7 @@ const contactCards: CardProps[] = contacts.map(
           <Letters text="Le Périmètre de la cité éducative" />
         </h2>
         <div class="two-columns mt-m px-s">
-          <p>
-            La commune de Béthune dispose de deux quartiers prioritaires, le
-            Mont Liébaut et la Rue de Lille. Il est proposé d’associer ces deux
-            territoires afin de disposer d’une programmation homogène. La ville
-            de Béthune, « Smart City », se veut dynamique et tournée vers les
-            nouvelles technologies. La commune possède une ingénierie dédiée à
-            la Politique de la ville qui travaille en lien étroit avec les
-            autres services (jeunesse, éducation, cohésion sociale, santé, …),
-            ce qui traduit une volonté certaine de s’investir pour les habitants
-            des quartiers et plus particulièrement les jeunes.
-          </p>
+          <p set:html={pageData.perimetre} />
           <Image
             src={imageMap}
             width={imageMap.width}
@@ -80,18 +63,7 @@ const contactCards: CardProps[] = contacts.map(
           Les Enjeux
         </h2>
         <div class="two-columns">
-          <TextCard>
-            Favoriser l’ambition et la réussite de tous, dans le cadre d’une
-            alliiance éducative renforcée.
-          </TextCard>
-          <TextCard>
-            Favoriser le vivre ensemble et promouvoir les valeurs de la
-            République.
-          </TextCard>
-          <TextCard>Favoriser le bien-être de tous.</TextCard>
-          <TextCard>
-            Lutter contre les fractures et appréhender le monde de demain.
-          </TextCard>
+          {pageData.enjeux.map((el) => <TextCard set:html={el} />)}
         </div>
       </div>
     </Section>

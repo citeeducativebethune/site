@@ -6,6 +6,19 @@ media_folder: "src/assets/uploads" # Media files will be stored in the repo unde
 public_folder: "~/assets/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
 collections:
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Page À Propos"
+        name: "about"
+        file: "src/data/about.json"
+        fields:
+          - { label: Description de la cité, name: description, widget: text }
+          - { label: Périmètre de la cité, name: perimetre, widget: text }
+          - label: "Enjeux"
+            name: "enjeux"
+            widget: "list"
+            field: { label: Text, name: text, widget: text }
   - name: "etablissements"
     label: "Établissements"
     slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
