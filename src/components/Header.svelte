@@ -16,7 +16,12 @@
   bind:offsetHeight={headerHeight}
 >
   <a href="/" class="logo" title="Accueil">
-    <img src="/logo.jpg" alt="logo de la cité éducativie" />
+    <img
+      src="/logo.jpg"
+      width="175"
+      height="100"
+      alt="logo de la cité éducativie"
+    />
   </a>
   <nav>
     <ul role="list">

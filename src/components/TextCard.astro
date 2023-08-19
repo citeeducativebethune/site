@@ -9,13 +9,17 @@ const { background = "surface-1", color = "text-1", url } = Astro.props;
 
 {
   url ? (
-    <a href={url} class={`bg-${background} clr-${color} fs-1 p-xs `}>
+    <a
+      href={url}
+      class={`bg-${background} clr-${color} fs-1 p-xs `}
+      data-onscroll
+    >
       <p>
         <slot />
       </p>
     </a>
   ) : (
-    <article class={`bg-${background} clr-${color} fs-1 p-xs `}>
+    <article class={`bg-${background} clr-${color} fs-1 p-xs `} data-onscroll>
       <p>
         <slot />
       </p>

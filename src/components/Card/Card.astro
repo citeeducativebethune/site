@@ -19,7 +19,7 @@ export interface Props {
 const props = Astro.props;
 ---
 
-<article class={clsx("flow", "pb-s", props.url && "card-link")}>
+<article class={clsx("flow", "pb-s", props.url && "card-link")} data-onscroll>
   <Header {...props} />
   <Content {...props} />
 </article>

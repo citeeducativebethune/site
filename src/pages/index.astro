@@ -1,5 +1,6 @@
 ---
 import FewCards from "@components/FewCards.astro";
+import Letters from "@components/Letters.astro";
 import Section from "@components/Section.astro";
 import TextCard from "@components/TextCard.astro";
 import Layout from "@layouts/Layout.astro";
@@ -14,13 +15,17 @@ const actus = await getActus();
   <main class="flow" style="--flow-space:var(--s-m);">
     <Section color="primary" shape="bottom">
       <div class="flow">
-        <h2 class="text-align:center h1 clr-surface-1">Actualités</h2>
+        <h2 class="text-align:center h1 clr-surface-1" data-onscroll>
+          <Letters text="Actualités" />
+        </h2>
         <FewCards {actus} />
       </div>
     </Section>
     <Section>
       <div class="flow">
-        <h2 class="h1 text-align:center">Les Établissements</h2>
+        <h2 class="h1 text-align:center" data-onscroll>
+          <Letters text="Les Établissements" />
+        </h2>
         <div class="ram wrapper" data-type="wide" data-align="center">
           {
             etablissements.map(({ name, url }) => (

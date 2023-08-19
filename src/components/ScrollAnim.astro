@@ -1,0 +1,53 @@
+<slot />
+<script>
+  const options: IntersectionObserverInit = {
+    rootMargin: "0px",
+    threshold: 0.2,
+  };
+  const callback: IntersectionObserverCallback = (entries) => {
+    let index = 0;
+    entries.forEach(({ isIntersecting, target }) => {
+      if (isIntersecting) {
+        const element = target as HTMLElement;
+        element.setAttribute("data-visible", "true");
+        element.style.setProperty("--_index", index.toString());
+        index++;
+        observer.unobserve(target);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(callback, options);
+  const entries = document.querySelectorAll<HTMLElement>("[data-onscroll]");
+  if ("IntersectionObserver" in window) {
+    entries.forEach((el) => {
+      el.setAttribute("data-visible", "false");
+      observer.observe(el);
+    });
+  }
+</script>
+
+<style is:global>
+  [data-visible] {
+    animation: scrollin 0.3s both;
+    animation-play-state: paused;
+  }
+  [data-visible="false"] {
+    /* animation-play-state: paused; */
+    /* transform: translateY(-3rem); */
+  }
+  [data-visible="true"] {
+    animation: scrollin 0.3s both;
+    animation-play-state: running;
+    animation-delay: calc(var(--_index) * 0.15s);
+    /* animation-play-state: running; */
+  }
+  @keyframes scrollin {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

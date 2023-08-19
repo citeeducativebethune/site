@@ -1,0 +1,59 @@
+---
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+const words = text.split(" ");
+const letters = words.map((w) => [...w]);
+const random = () => Math.floor(Math.random() * 20);
+---
+
+<span class="sronly">
+  {text}
+</span>
+{
+  letters.map((w) => (
+    <span class="word" aria-hidden="true">
+      {w.map((l, li) => (
+        <span
+          class="letter"
+          style={`--_letter-index:${random()}`}
+          set:html={l}
+        />
+      ))}
+    </span>
+  ))
+}
+<style>
+  .word {
+    display: inline-flex;
+    overflow: hidden;
+  }
+  .word:not(:last-child) {
+    margin-inline-end: 0.3em;
+  }
+  .letter {
+    /* display: inline-block; */
+    white-space: break-spaces;
+  }
+</style>
+
+<style is:global>
+  [data-visible="true"] .letter {
+    animation: letter-in 0.3s cubic-bezier(0.8, 0.5, 0.5, 1.5) both;
+    animation-delay: calc(var(--_letter-index) * 0.02s);
+    overflow: hidden;
+  }
+  @keyframes letter-in {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>

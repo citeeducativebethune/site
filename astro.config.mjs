@@ -5,8 +5,6 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
-  outDir: "docs",
-  base: "cite-educative/",
   experimental: {
     assets: true,
   },
