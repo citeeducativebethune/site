@@ -7,7 +7,7 @@ export const getEtablissements = async () => {
     return {
       ...el.data,
       slug,
-      url: `etablissements/${slug}`,
+      url: `/etablissements/${slug}`,
     };
   });
 };

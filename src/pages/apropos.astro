@@ -10,7 +10,6 @@ import { Image } from "astro:assets";
 import imageMap from "~/assets/map.png";
 
 const pageData = getAbout();
-console.log(pageData);
 
 const contacts = await getContacts();
 const contactCards: CardProps[] = contacts.map(
