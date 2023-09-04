@@ -14,7 +14,7 @@ export const getStaticPaths = (async ({ paginate }) => {
   const allActus = await getActus();
   return etablissements?.flatMap(({ slug, name }) => {
     const actus = allActus.filter((el) => el.data.etablissement === name);
-    return paginate(actus, { params: { slug }, pageSize: 3 });
+    return paginate(actus, { params: { slug }, pageSize: 24 });
   });
 }) satisfies GetStaticPaths;
 const { slug } = Astro.params;
