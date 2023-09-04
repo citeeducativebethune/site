@@ -29,7 +29,6 @@ const { background = "surface-1", color = "text-1", url } = Astro.props;
 <style>
   a,
   article {
-    color: inherit;
     border-radius: 1rem;
     font-weight: 600;
     transition: transform 0.3s;
@@ -38,6 +37,5 @@ const { background = "surface-1", color = "text-1", url } = Astro.props;
   }
   a:where(:hover, :focus-visible) {
     transform: scale(0.97);
-    color: red;
   }
 </style>
