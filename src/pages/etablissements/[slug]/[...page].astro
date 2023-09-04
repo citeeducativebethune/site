@@ -12,7 +12,7 @@ import type { Props as CardProps } from "@components/Card/Card.astro";
 export const getStaticPaths = (async ({ paginate }) => {
   const etablissements = await getEtablissements();
   const allActus = await getActus();
-  return etablissements?.map(({ slug, name }) => {
+  return etablissements?.flatMap(({ slug, name }) => {
     const actus = allActus.filter((el) => el.data.etablissement === name);
     return paginate(actus, { params: { slug }, pageSize: 3 });
   });

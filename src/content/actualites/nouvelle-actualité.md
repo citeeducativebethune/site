@@ -3,7 +3,7 @@ title: Coucou
 etablissement: École Maternelle Buisson
 description: "Une Actualité incontournable ! "
 date: 14-08-2023
-image: ~/assets/uploads/jardins.jpeg
+image: ../../assets/uploads/jardins.jpeg
 altImage: Truc Bidule
 ---
 

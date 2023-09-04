@@ -11,9 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/svelte": "^3.1.0",
+    "@astrojs/svelte": "^4.0.0",
     "@fontsource/averia-sans-libre": "^5.0.8",
-    "astro": "^2.10.1",
+    "astro": "^3.0.8",
     "clsx": "^2.0.0",
     "remark-unwrap-images": "^3.0.1",
     "sharp": "^0.32.4",

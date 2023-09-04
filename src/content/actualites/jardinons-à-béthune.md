@@ -28,7 +28,7 @@ Les écoles maternelles Gérard Philipe, [Marcel Proust](http://example.com) et 
 - Trois
 - Un
 
-![](~/assets/uploads/jardins.jpeg)
+![](../../assets/uploads/jardins.jpeg)
 
 «Regardez la verveine ! Vous avez vu les radis ?, lance la maîtresse. Oh ils ont été mangés...». « J’ai une coccinelle sur mes cheveux ! » crie un petit garçon dans l’une des allées. Vous l’aurez compris, ces temps d’apprentissage sont complémentaires à ceux qui se font en classe. Dans cette grande section dédoublée, les enfants qui se rendent au potager observent le jardin, ce qui s’y passe, font leurs expériences et travaillent le vocabulaire qui va avec. Ils mettent aussi en pratique ce qu’ils ont appris et respectent de plus en plus leur environnement.
 
