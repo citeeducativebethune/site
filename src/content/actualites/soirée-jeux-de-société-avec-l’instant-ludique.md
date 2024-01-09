@@ -5,7 +5,7 @@ etablissement: Collège Paul Verlaine
 description: Ce jeudi 21 décembre de 18 heures à 21 heures a eu lieu une soirée
   Jeux de Société animée par L’Instant Ludique.
 date: 09-01-2024
-image: ../../assets/uploads/cover.jpeg
+image: ../../assets/uploads/2.jpeg
 altImage: collections de jeux
 ---
 Ce jeudi 21 décembre de 18 heures à 21 heures a eu lieu une soirée Jeux de Société animée par L’Instant Ludique.
