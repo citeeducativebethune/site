@@ -9,28 +9,20 @@ altImage: deux élèves travaillent sur l'ordinateur
 ---
 ***Présentation Club Web et Club Vidéo***
 
-Bonjour nous allons vous présentez le Club Web et Vidéo
-
-
+Bonjour nous allons vous présenter le Club Web et Vidéo.
 
 ***Le Club Web***
 
-Le Club Web nous permet d’apprendre à coder des sites internets et pour plus tard les poster en ligne.
-
-
+Le Club Web nous permet d’apprendre à coder des sites internet et à les poster en ligne.
 
 ![](../../assets/uploads/img_0258.jpeg)
 
 ***Le club Vidéo***
 
-Le Club Vidéo nous permet de faire des montages vidéos et pourrais aider dans certain cours
-
- 
+Le Club Vidéo nous permet de faire des montages vidéos et pourrait aider dans certains cours
 
 ![](../../assets/uploads/img_0261.jpeg)
 
+Les Clubs sont animés par Mr Cailleteau et organisés par madame Ben Nejma
 
-
-Les Clubs sont organisé par Mr Cailleteau et organiser par madame Ben Nejma
-
-Merci d’avoir lue notre article !
+Merci d’avoir lu notre article !
